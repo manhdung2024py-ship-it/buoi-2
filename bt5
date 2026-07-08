@@ -1,0 +1,21 @@
+<?php
+namespace App\Models;
+class User {
+public function sayHello() {
+echo "Hello from User class!<br>";
+}
+}
+<?php
+spl_autoload_register(function ($class) {
+$path = str_replace("\\", "/", $class) . ".php";
+if (file_exists($path)) {
+require $path;
+}
+});
+<?php
+require 'autoload.php';
+
+use App\Models\User;
+$user = new User();
+$user->sayHello();
+?>
